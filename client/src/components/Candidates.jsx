@@ -16,7 +16,7 @@ class Candidates extends React.Component {
 
     return(
       <div>
-      <div className="candidates-title">Who Am I Thinking Of?</div>
+      <div className="candidates-title">Who Am I Thinking Of? Is it:</div>
 
       <div className="candidates-wrapper">
       {candidateNodes}

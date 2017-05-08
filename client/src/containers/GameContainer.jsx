@@ -49,9 +49,20 @@ class GameContainer extends React.Component{
         <div className = 'title'>{this.state.gameName}</div>
         <div><Candidates candidates={this.state.candidates}/></div>
 
+<div>Guess Which Feature!</div>
+
+        <div>Guess their gender</div>
         <div><GenderSelector candidates={this.state.candidates} setSelectedGender={this.setSelectedGender.bind(this)}/></div>
+        
+        <div>Guess their hair colour</div>
         <div><ColourSelector candidates={this.state.candidates} setSelectedHairColour={this.setSelectedHairColour.bind(this)}/></div>
+        
+        <div>Guess their height</div>
+
         <div><HeightSelector candidates={this.state.candidates} setSelectedHeight={this.setSelectedHeight.bind(this)}/></div>
+
+
+        <div>Guess who I am thinking of!</div>
         <div><GuessWhichCandidateSelector candidates={this.state.candidates} setSelectedCandidate={this.setSelectedCandidate.bind(this)}/></div>
 
 
