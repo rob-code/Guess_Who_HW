@@ -12,8 +12,6 @@ class Candidate extends React.Component{
 
       <div className="single-candidate-wrapper">
       {this.props.candidate.name}
-      {this.props.candidate.hairColour}
-      {this.props.candidate.height}
       </div>
 
 
