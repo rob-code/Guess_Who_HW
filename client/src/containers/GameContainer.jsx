@@ -19,7 +19,8 @@ class GameContainer extends React.Component{
       ],
       genderGuessResponse: '',
       hairColourGuessResponse: '',
-      heightGuessReponse:''
+      heightGuessResponse:'',
+      candidateGuessResponse: ''
     }
 
       this.gameLogic = new GameLogic(this.state.candidates)
@@ -47,6 +48,9 @@ class GameContainer extends React.Component{
 
     setSelectedCandidate(name){
       console.log(name)
+      this.setState({candidateGuessResponse: this.gameLogic.candidateGuess(name)})
+
+
     }
 
     resetGuesses(event){
@@ -54,6 +58,7 @@ class GameContainer extends React.Component{
       this.setState({genderGuessResponse: ''})
       this.setState({hairColourGuessResponse: ''})
       this.setState({heightGuessResponse: ''})
+      this.setState({candidateGuessResponse: ''})
     }
 
     render(){
@@ -85,7 +90,7 @@ class GameContainer extends React.Component{
 
         <div>Guess who I'm thinking of!</div>
         <div><GuessWhichCandidateSelector candidates={this.state.candidates} setSelectedCandidate={this.setSelectedCandidate.bind(this)}/></div>
-
+        <div className="candidate-guess-response">{this.state.candidateGuessResponse}</div>
 
         </div>
 

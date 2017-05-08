@@ -50,7 +50,22 @@ var GameLogic = function (candidates) {
         }
 
 
+      },
+
+      candidateGuess: function(name){
+
+        if (name === this.randomCandidate.name) {
+          return "yes! " + name + " is the right person"
+        }
+        else
+        {
+            return "no! " + name + " is the wrong person"          
+        }
+
+
       }
+
+
 
 
     }
