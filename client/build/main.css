@@ -7,21 +7,61 @@
 }
 
 .title{
-  padding-top: 30px;
   font-size: 2em;
   text-align: center;
   color: LightSeaGreen;
 }
 
 .candidates-title{
- padding-top: 30px;
+ padding-top: 20px;
  font-size: 1.2em;
  color: LightSeaGreen; 
+ text-align:center;
 }
 
 .candidates-wrapper{
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
  font-size: 1.1em;
  color: LightSeaGreen; 
+ text-align:center;
 }
+.guess-feature-title{
+   padding-top: 10px;
+   padding-bottom: 10px;
+  font-size: 1.5em;
+  color: #cdcdcd; 
+  text-align:center;
+}
+
+.guess{
+  height: 130px;
+}
+
+.guess-title{
+   padding-top: 10px;
+   padding-bottom: 5px;
+  font-size: 1.5em;
+  color:  #cdcdcd; 
+  text-align:center;
+}
+
+.guess-select{
+  padding-top: 5px;
+  padding-bottom: 5px;
+height: 30px;
+  text-align:center;
+}
+
+.guess-response{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align:center;
+}
+
+.reset-button{
+  text-align:center;
+  padding-bottom: 30px;
+}
+
+

@@ -11,7 +11,7 @@ class GameContainer extends React.Component{
   constructor (props) {
     super(props)
     this.state = {
-      gameName: 'Guess Who!',
+      gameName: 'Who am I thinking of?',
       candidates: [  {name: 'Bill', gender: 'male', hairColour: 'blue', height: 3}, 
       {name: 'Jo', gender: 'female', hairColour: 'green', height: 4},
       {name: 'Graham', gender: 'male', hairColour: 'yellow', height: 5},
@@ -69,28 +69,32 @@ class GameContainer extends React.Component{
         <div className = 'title'>{this.state.gameName}</div>
         <div><Candidates candidates={this.state.candidates}/></div>
 
-<div>Guess Which Feature!</div>
+<div className="guess-feature-title">Guess Which Feature!</div>
 
-        <div>Guess their gender</div>
-        <div><GenderSelector candidates={this.state.candidates} setSelectedGender={this.setSelectedGender.bind(this)}/></div>
+        <div className="guess">
+        <div className="guess-title">Guess their gender</div>
+        <div className="guess-select"><GenderSelector candidates={this.state.candidates} setSelectedGender={this.setSelectedGender.bind(this)}/></div>
         <div className="guess-response">{this.state.genderGuessResponse}</div>
+        </div>
         
-        <div>Guess their hair colour</div>
-        <div><ColourSelector candidates={this.state.candidates} setSelectedHairColour={this.setSelectedHairColour.bind(this)}/></div>
+        <div className="guess">
+        <div className="guess-title">Guess their hair colour</div>
+        <div className="guess-select"><ColourSelector candidates={this.state.candidates} setSelectedHairColour={this.setSelectedHairColour.bind(this)}/></div>
         <div className="guess-response">{this.state.hairColourGuessResponse}</div>
+        </div>
 
-
-        <div>Guess their height</div>
-        <div><HeightSelector candidates={this.state.candidates} setSelectedHeight={this.setSelectedHeight.bind(this)}/></div>
+        <div className="guess">
+        <div className="guess-title">Guess their height</div>
+        <div className="guess-select"><HeightSelector candidates={this.state.candidates} setSelectedHeight={this.setSelectedHeight.bind(this)}/></div>
         <div className="guess-response">{this.state.heightGuessResponse}</div>
+        </div>
+
+        <div className="reset-button"><button onClick={this.resetGuesses.bind(this)}>Reset Guesses</button></div>
 
 
-        <div><button onClick={this.resetGuesses.bind(this)}>Reset Guesses</button></div>
-
-
-        <div>Guess who I'm thinking of!</div>
-        <div><GuessWhichCandidateSelector candidates={this.state.candidates} setSelectedCandidate={this.setSelectedCandidate.bind(this)}/></div>
-        <div className="candidate-guess-response">{this.state.candidateGuessResponse}</div>
+        <div className="title">Guess who I'm thinking of!</div>
+        <div className="guess-select"><GuessWhichCandidateSelector candidates={this.state.candidates} setSelectedCandidate={this.setSelectedCandidate.bind(this)}/></div>
+        <div className="guess-response">{this.state.candidateGuessResponse}</div>
 
         </div>
 
