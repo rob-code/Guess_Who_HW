@@ -23,92 +23,77 @@ class GameContainer extends React.Component{
       candidateGuessResponse: ''
     }
 
-      this.gameLogic = new GameLogic(this.state.candidates)
-      this.candidate = this.gameLogic.getRandomCandidate();
-      console.log(this.candidate)
-    }
+    this.gameLogic = new GameLogic(this.state.candidates)
+    this.candidate = this.gameLogic.getRandomCandidate();
+  }
+
+  setSelectedGender(gender){
+    this.setState({genderGuessResponse: this.gameLogic.genderGuess(gender)})
+  }
+
+  setSelectedHairColour(colour){
+    this.setState({hairColourGuessResponse: this.gameLogic.hairColourGuess(colour)})
+  }
+
+  setSelectedHeight(height){
+    this.setState({heightGuessResponse: this.gameLogic.heightGuess(height)})
+  } 
 
 
-    setSelectedGender(gender){
-      console.log(gender)
-      console.log(this.gameLogic.genderGuess(gender))
-      this.setState({genderGuessResponse: this.gameLogic.genderGuess(gender)})
-    }
+  setSelectedCandidate(name){
+    this.setState({candidateGuessResponse: this.gameLogic.candidateGuess(name)})
+  }
 
-    setSelectedHairColour(colour){
-      console.log(colour)
-      this.setState({hairColourGuessResponse: this.gameLogic.hairColourGuess(colour)})
-    }
+  resetGuesses(event){
+    console.log('reset guesses')
+    this.setState({genderGuessResponse: ''})
+    this.setState({hairColourGuessResponse: ''})
+    this.setState({heightGuessResponse: ''})
+    this.setState({candidateGuessResponse: ''})
+  }
 
-    setSelectedHeight(height){
-      console.log(height)
-      this.setState({heightGuessResponse: this.gameLogic.heightGuess(height)})
-    } 
+  render(){
 
+    return (
 
-    setSelectedCandidate(name){
-      console.log(name)
-      this.setState({candidateGuessResponse: this.gameLogic.candidateGuess(name)})
+      <div className = 'container'>
+      <div className = 'title'>{this.state.gameName}</div>
+      <div><Candidates candidates={this.state.candidates}/></div>
 
+      <div className="guess-feature-title">Guess Which Feature!</div>
 
-    }
+      <div className="guess">
+      <div className="guess-title">Guess their gender</div>
+      <div className="guess-select"><GenderSelector candidates={this.state.candidates} setSelectedGender={this.setSelectedGender.bind(this)}/></div>
+      <div className="guess-response">{this.state.genderGuessResponse}</div>
+      </div>
+      
+      <div className="guess">
+      <div className="guess-title">Guess their hair colour</div>
+      <div className="guess-select"><ColourSelector candidates={this.state.candidates} setSelectedHairColour={this.setSelectedHairColour.bind(this)}/></div>
+      <div className="guess-response">{this.state.hairColourGuessResponse}</div>
+      </div>
 
-    resetGuesses(event){
-      console.log('reset guesses')
-      this.setState({genderGuessResponse: ''})
-      this.setState({hairColourGuessResponse: ''})
-      this.setState({heightGuessResponse: ''})
-      this.setState({candidateGuessResponse: ''})
-    }
+      <div className="guess">
+      <div className="guess-title">Guess their height</div>
+      <div className="guess-select"><HeightSelector candidates={this.state.candidates} setSelectedHeight={this.setSelectedHeight.bind(this)}/></div>
+      <div className="guess-response">{this.state.heightGuessResponse}</div>
+      </div>
 
-    render(){
-
-      return (
-
-        <div className = 'container'>
-        <div className = 'title'>{this.state.gameName}</div>
-        <div><Candidates candidates={this.state.candidates}/></div>
-
-<div className="guess-feature-title">Guess Which Feature!</div>
-
-        <div className="guess">
-        <div className="guess-title">Guess their gender</div>
-        <div className="guess-select"><GenderSelector candidates={this.state.candidates} setSelectedGender={this.setSelectedGender.bind(this)}/></div>
-        <div className="guess-response">{this.state.genderGuessResponse}</div>
-        </div>
-        
-        <div className="guess">
-        <div className="guess-title">Guess their hair colour</div>
-        <div className="guess-select"><ColourSelector candidates={this.state.candidates} setSelectedHairColour={this.setSelectedHairColour.bind(this)}/></div>
-        <div className="guess-response">{this.state.hairColourGuessResponse}</div>
-        </div>
-
-        <div className="guess">
-        <div className="guess-title">Guess their height</div>
-        <div className="guess-select"><HeightSelector candidates={this.state.candidates} setSelectedHeight={this.setSelectedHeight.bind(this)}/></div>
-        <div className="guess-response">{this.state.heightGuessResponse}</div>
-        </div>
-
-        <div className="reset-button"><button onClick={this.resetGuesses.bind(this)}>Reset Guesses</button></div>
+      <div className="reset-button"><button onClick={this.resetGuesses.bind(this)}>Reset Guesses</button></div>
 
 
-        <div className="title">Guess who I'm thinking of!</div>
-        <div className="guess-select"><GuessWhichCandidateSelector candidates={this.state.candidates} setSelectedCandidate={this.setSelectedCandidate.bind(this)}/></div>
-        <div className="guess-response">{this.state.candidateGuessResponse}</div>
+      <div className="title">Guess who I'm thinking of!</div>
+      <div className="guess-select"><GuessWhichCandidateSelector candidates={this.state.candidates} setSelectedCandidate={this.setSelectedCandidate.bind(this)}/></div>
+      <div className="guess-response">{this.state.candidateGuessResponse}</div>
 
-        </div>
+      </div>
 
-        )
-
-
-
-    }
-
-
-
-
+      )
 
   }
 
+}
 
-  export default GameContainer
+
+export default GameContainer
